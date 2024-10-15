@@ -1,0 +1,25 @@
+modules:
+  jira:globalPage:
+    - key: custom-project-creation-page-global-page-hello-world-page
+      resource: main
+      resolver:
+        function: resolver
+      title: custom-project-creation-page-global-page
+  function:
+    - key: resolver
+      handler: index.handler
+resources:
+  - key: main
+    path: static/hello-world/build
+app:
+  runtime:
+    name: nodejs20.x
+  id: ari:cloud:ecosystem::app/320665ed-a69f-4b1a-a0ad-2c0c2b46f21b
+
+permissions:
+  scopes:
+    - manage:jira-configuration
+    - read:jira-work
+    - write:jira-work
+    - write:project:jira
+    - read:project:jira
